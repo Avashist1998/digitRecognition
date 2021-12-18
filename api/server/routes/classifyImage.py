@@ -12,7 +12,7 @@ router = APIRouter()
 
 
 @router.get("/", response_description="Returns what number the image look like")
-async def getClassificationResults(image:int = None):
+async def getClassificationResults(image:str = None):
     if (image != None):
         return ClassificationResponseModel(1, 0.94)
     return ErrorResponseModel("request failed", 404, "Invalid input" )
