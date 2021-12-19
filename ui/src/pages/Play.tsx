@@ -1,10 +1,4 @@
 import React, {useState} from 'react';
-import NavBar from '../components/navbar';
-
-var number:number = 1
-var score:number  = 0.29
-
-
 
 function PlayPage() {
 
@@ -31,16 +25,18 @@ function PlayPage() {
 
     return (
 
-        <div className="App">
-            {/* <nav className='nav-bar'></nav> */}
-            <NavBar/>
-            <header className="Number Practice">
-            </header>
-            <button onClick={test}>Submit</button>
-            
-            <button onClick={undo}>Clear</button>
-            <p>Your number is : {number}</p>
-            <p>The score given by model {score}</p>
+        <div className="Play">
+            <div className='container'>
+
+                <button className="submitButton" onClick={test}>Submit</button>
+                <button className="submitButton" onClick={undo}>Clear</button>
+                <p>Your number is : {number}</p>
+                <p>The score given by model {score}</p>
+
+            </div>
+
+
+
         </div>
     )
 }

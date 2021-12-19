@@ -1,15 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Routes,Route } from "react-router-dom";
-import HomePage from "./pages/HomePage"
-import PlayPage from "./pages/PlayPage"
+import Home from "./pages/Home"
+import Play from "./pages/Play"
+import NavBar from './components/navbar';
+import About from "./pages/About"
 
 function App() {
   return (
     <BrowserRouter>
+      <NavBar/>
       <Routes>
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/play" element={<PlayPage />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/play" element={<Play />} />
+        <Route path= "/about" element={<About />} />
+        <Route path="/" element={<Home />} />
         <Route
           path="*"
           element={
