@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import NavBar from '../components/navbar';
 import DrawingCanvas from '../components/DrawingCanvas';
+import navBar from "../components/navbar"
 import './Play.css'
 
 const PlayPage = () => {   
@@ -18,7 +18,7 @@ const PlayPage = () => {
             });
         })  
     }
-
+    
     const undo = () => {
         console.log("clear the screen")
         SetNumber(0)
@@ -28,7 +28,7 @@ const PlayPage = () => {
     return (
         <div className="Play">
             <div className='container'>
-                <DrawingCanvas setImageURI={setCanvasURI}/>
+            <DrawingCanvas setImageURI={setCanvasURI}/>
                 <img className="signature-thumbnail" width="250px" 
                 src ={canvasURI} 
                 alt="Signature thumbnail"></img>
@@ -42,6 +42,5 @@ const PlayPage = () => {
 };
 
 export default PlayPage;
-
 //https://github.com/rleija703/react-examples/blob/master/useref-with-typescript/src/App.tsx
 //https://linguinecode.com/post/how-to-use-react-useref-with-typescript
