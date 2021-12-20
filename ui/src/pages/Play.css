@@ -1,0 +1,8 @@
+#myCanvas {
+    border:1px solid black;
+}
+
+img.signature-thumbnail{
+    border: 1px black;
+    width: 250px;
+}
