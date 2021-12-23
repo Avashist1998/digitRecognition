@@ -1,4 +1,4 @@
-from typing import List 
+from typing import List
 
 def ClassificationResponseModel(classification:int, score:float):
     return {
@@ -8,6 +8,7 @@ def ClassificationResponseModel(classification:int, score:float):
         },
         "code":200
     }
+
 
 
 

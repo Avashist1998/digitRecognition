@@ -44,7 +44,7 @@ const DrawingCanvas:React.FC<IProps> = ({setImageURI}) => {
         if (!isPainting) return;
         let offsetX = boundCanvas!.x
         let offsetY = boundCanvas!.y
-        contextRefCanvas!.lineWidth = 5
+        contextRefCanvas!.lineWidth = 25
         contextRefCanvas!.lineCap   = "round"
         contextRefCanvas!.lineTo(e.pageX - offsetX, e.pageY - offsetY) //
         contextRefCanvas!.stroke() // this will draw the line
