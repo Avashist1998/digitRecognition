@@ -192,3 +192,4 @@ packages/react-devtools-timeline/dist
 
 tmp.*
 *.pkl
+testSample
