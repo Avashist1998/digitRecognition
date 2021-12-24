@@ -7,28 +7,29 @@ const PlayPage = () => {
 
     return (
         <div className="Play">
-            <div className='container-fluid-center'>
-                <div className = 'row'>
-                    <div className='col-md-3'>
-                        <NumberCard number='0'/>
-                        <NumberCard number='3'/>
-                        <NumberCard number='6'/>
-                    </div>
-                    <div className='col-md-3'>
-                        <NumberCard number='1'/>
-                        <NumberCard number='4'/>
-                        <NumberCard number='7'/>
-                        <NumberCard number='9'/>
-                    </div>
-
-                    <div className='col-md-3'>
-                        <NumberCard number='2'/>
-                        <NumberCard number='5'/>
-                        <NumberCard number='8'/>
+            <div className='text-center'>
+                <div className='container-fluid-center'>
+                    <div className = 'row'>
+                        <div className='col-md-3 mx-auto'>
+                            <NumberCard number='0'/>
+                            <NumberCard number='3'/>
+                            <NumberCard number='6'/>
+                        </div>
+                        <div className='col-md-3 mx-auto'>
+                            <NumberCard number='1'/>
+                            <NumberCard number='4'/>
+                            <NumberCard number='7'/>
+                            <NumberCard number='9'/>
+                        </div>
+                        <div className='col-md-3 mx-auto' >
+                            <NumberCard number='2'/>
+                            <NumberCard number='5'/>
+                            <NumberCard number='8'/>
+                        </div>
                     </div>
                 </div>
-                
             </div>
+            
         </div>
     )
 };

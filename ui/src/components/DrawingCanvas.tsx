@@ -11,8 +11,7 @@ interface IProps {
 }
 
 
-const DrawingCanvas:React.FC<IProps> = ({setImageURI}) => {
-      
+const DrawingCanvas:React.FC<IProps> = ({setImageURI}) => { 
     const refCanvas = useRef<HTMLCanvasElement>(null) 
     var contextRefCanvas:any = null
     var boundCanvas:DOMRect

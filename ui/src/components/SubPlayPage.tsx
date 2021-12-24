@@ -19,6 +19,9 @@ const SubPlayPage = ({number_truth = "0"}) => {
     
     const undo = () => {
         console.log("clear the screen")
+        console.log({canvasURI})
+        setCanvasURI!("/")
+        console.log({canvasURI})
         SetNumber(0)
         SetScore(0.99)
     }
@@ -27,16 +30,27 @@ const SubPlayPage = ({number_truth = "0"}) => {
     return (
         <div className="container"> 
             <div className="text-center">
-            <h2> Try to make a {number_truth}</h2>
+                <h2> Try to make a {number_truth}</h2>
             </div>
-            <DrawingCanvas setImageURI={setCanvasURI}/>
-                <img className="signature-thumbnail" width="250px" 
+            <div className="text-center" >
+                <DrawingCanvas setImageURI={setCanvasURI}/>
+                {/* <img className="signature-thumbnail" width="250px" 
                 src ={canvasURI} 
-                alt="Signature thumbnail"></img>
-                <button className="submitButton" onClick={test}>Submit</button>
-                <button className="submitButton" onClick={undo}>Clear</button>
-                <p>Your number is : {number_result}</p>
-                <p>The score given by model {score_result}</p>
+                alt="Signature thumbnail"></img> */}
+
+                <div className="row">
+                    <div className="col-md-2 col-lg-2 offset-md-4 offset-lg-4">
+                        <button className="btn btn-success" onClick={test}>Submit</button>
+                    </div>
+                    <div className="col-md-2 col-lg-2">
+                        <button className="btn btn-danger" onClick={undo}>Clear</button>
+                    </div>                
+                </div>
+            
+                <h4>Your number is : {number_result}</h4>
+                <h4>The score given by model {score_result}</h4>
+    
+            </div>
         </div>
 
     )
