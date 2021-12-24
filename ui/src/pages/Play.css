@@ -6,3 +6,9 @@ img.signature-thumbnail{
     border: 1px solid black;
     width: 250px;
 }
+
+.container-fluid{
+    padding-left: 0rem;
+    padding-right: 0rem;
+    overflow: hidden;
+  }
