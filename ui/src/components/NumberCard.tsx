@@ -4,7 +4,7 @@ import './navbar.css'
 
 const NumberCard = ({number = '0'}) =>{
     return (
-        <div className="card mx-auto">
+        <div id="numberCard" className="card mx-auto">
             <a href={"play/" + number}> 
             {/* <img className="card-img-top" src="..." alt="Card image cap"/> */}
                 <div className="card-body">

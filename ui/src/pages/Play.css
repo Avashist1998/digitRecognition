@@ -1,3 +1,8 @@
 #myCanvas {
     border:5px solid gray;
 }
+
+#numberCard{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
