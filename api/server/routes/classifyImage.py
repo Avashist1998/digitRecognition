@@ -14,8 +14,7 @@ from ..models.classificationData import(
     ErrorResponseModel
 )
 
-
-tmp_path = "/home/avashist/Documents/digit_recognization/api/server/classifer_binaries/RandomForestClassifer.pkl"
+tmp_path = os.path.join(os.getcwd(),  "server/classifer_binaries/RandomForestClassifer.pkl")
 model_path = os.getenv("MODEL_PATH", tmp_path)
 
 router = APIRouter()
