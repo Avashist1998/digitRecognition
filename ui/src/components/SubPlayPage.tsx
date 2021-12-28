@@ -3,16 +3,16 @@ import DrawingCanvas from "./DrawingCanvas";
 
 const SubPlayPage = ({number_truth = "0"}) => {   
     const [canvasURI, setCanvasURI] = useState("")  
-    const [number_result, SetNumber] = useState(0);
-    const [score_result, SetScore] = useState(0.99);
+    const [number_result, SetNumberResult] = useState(0);
+    const [score_result, SetScoreResult] = useState(0.99);
 
     const test = () => {
         let data = {"image":"23"}
         fetch("http://127.0.0.1:8000/predict/?" + new URLSearchParams(data)).then(Response => {
             Response.json().then(Json => {
                 console.log(Json.data);
-                SetNumber(Json.data.classification)
-                SetScore(Json.data.score)
+                SetNumberResult(Json.data.classification)
+                SetScoreResult(Json.data.score)
             });
         })  
     }
@@ -22,8 +22,8 @@ const SubPlayPage = ({number_truth = "0"}) => {
         console.log({canvasURI})
         setCanvasURI!("/")
         console.log({canvasURI})
-        SetNumber(0)
-        SetScore(0.99)
+        SetNumberResult(0)
+        SetScoreResult(0.99)
     }
 
 
