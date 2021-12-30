@@ -6,7 +6,7 @@ def fileToImage(file) -> Image.Image:
     return Image.open(BytesIO(file))
 
 def imageResize(image:Image.Image) -> np.array:
-    image = ImageOps.grayscale(image)
+    image = image.split()[-1]
     image = image.resize((28,28))
     image = np.asarray(image, 'uint8').reshape(1, -1)
     return image
