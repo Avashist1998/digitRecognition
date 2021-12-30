@@ -5,13 +5,12 @@ import DrawingCanvas from "./DrawingCanvas";
 const SubPlayPage = ({number_truth = "0"}) => {
     
     const url = "http://192.168.1.65:8000/predict"
-    const [imageData, setImageData] = useState<Blob | null>(null)
     const [canvasURI, setCanvasURI] = useState("")  
     const [number_result, SetNumberResult] = useState(0);
     const [score_result, SetScoreResult] = useState(0.99);
 
 
-    const getResults = () => {
+    const getResults = (imageData:Blob) => {
         if (imageData != null){
             const fd = new FormData()
             fd.append('file', imageData, "file.png")
@@ -38,8 +37,7 @@ const SubPlayPage = ({number_truth = "0"}) => {
         // setImageData(image)
         canvas.toBlob(function(blob){
             if (blob != null) {
-                setImageData(blob)
-                getResults()
+                getResults(blob)
             }
             
          })
@@ -51,8 +49,10 @@ const SubPlayPage = ({number_truth = "0"}) => {
         var canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
         var context = canvas.getContext('2d') as CanvasRenderingContext2D;
         context.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // Need to hide the Set Number and Score
+        var width = canvas.width;
+        canvas.width = 1;
+        canvas.width = width
+
         SetNumberResult(0)
         SetScoreResult(0.99)
     }
