@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes,Route } from "react-router-dom";
+
 import Home from "./pages/Home"
 import Play from "./pages/Play"
 import About from "./pages/About"
-
 import NavBar from './components/navbar';
-import SubPlayPage from './components/SubPlayPage';
 import Footer from './components/footer';
+import SubPlayPage from './components/SubPlayPage';
 
 function App() {
   return (
