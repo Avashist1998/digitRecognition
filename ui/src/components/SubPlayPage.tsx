@@ -25,16 +25,11 @@ const SubPlayPage = ({number_truth = "0"}) => {
                 })
                 .catch(err => console.error(err))
         }
-        }
+    }
         
-        
-
-
     const submit = () => {
         
         var canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
-        var image = canvas.toDataURL()
-        // setImageData(image)
         canvas.toBlob(function(blob){
             if (blob != null) {
                 getResults(blob)
