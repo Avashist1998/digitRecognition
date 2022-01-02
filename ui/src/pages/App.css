@@ -1,3 +1,10 @@
+:root{
+  --base-white:#D7D9CE;
+  --base-black: #404040;
+  --base-dark-blue:#13505B;
+  --base-light-blue:#0C7489;
+  --base-bright-blue :#119DA4;
+}
 .App {
   text-align: center;
 }
@@ -21,7 +28,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--base-white);
 }
 
 .App-link {
@@ -38,11 +45,9 @@
 }
 
 .nav-bar{
-  background:white;
+  background:var(--base-white);
   height:100px;
 }
-
-
 
 
 .Play {

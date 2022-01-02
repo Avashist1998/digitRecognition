@@ -8,8 +8,8 @@ const NumberCard = ({number = '0'}) =>{
             <a href={"play/" + number}> 
             {/* <img className="card-img-top" src="..." alt="Card image cap"/> */}
                 <div className="card-body">
-                    <p className="card-title"> {number} </p>
-                    <a href={"play/" + number} className="btn-primary">Play</a>
+                    <h4 className="card-title"> {number} </h4>
+                    {/* <a href={"play/" + number} className="btn-primary">Play</a> */}
                 </div>
             </a>
         </div>
