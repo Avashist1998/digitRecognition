@@ -1,11 +1,12 @@
 import { METHODS } from "http";
 import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import DrawingCanvas from "./DrawingCanvas";
 
 const SubPlayPage = ({number_truth = "0"}) => {
-    
+    // const history = useNavigate();
     const url = "http://192.168.1.65:8000/predict"
-    const [canvasURI, setCanvasURI] = useState("")  
+    const [canvasURI, setCanvasURI] = useState("")
     const [number_result, SetNumberResult] = useState(0);
     const [score_result, SetScoreResult] = useState(0.99);
 
@@ -26,7 +27,19 @@ const SubPlayPage = ({number_truth = "0"}) => {
                 .catch(err => console.error(err))
         }
     }
-        
+
+    function hasPrev(){
+        if (number_truth !== '0'){
+            return <button id="prevButton" className="btn btn-success" onClick={() => { window.location.href = (parseInt(number_truth)-1).toString()} }>Prev</button>
+        }   
+    }
+    
+    function hasNext(){
+        if (number_truth !== "9"){
+            return <button id="nextButton" className="btn btn-success" onClick={() => { window.location.href = (parseInt(number_truth)+1).toString()} }>Next</button>
+        }
+    }
+   
     const submit = () => {
         
         var canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
@@ -34,9 +47,7 @@ const SubPlayPage = ({number_truth = "0"}) => {
             if (blob != null) {
                 getResults(blob)
             }
-            
          })
-
     }
     
     const undo = () => {
@@ -51,19 +62,27 @@ const SubPlayPage = ({number_truth = "0"}) => {
         SetNumberResult(0)
         SetScoreResult(0.99)
     }
-
-
     return (
         <div className="container"> 
             <div className="text-center">
                 <h2> Try to make a {number_truth}</h2>
             </div>
-            <div className="text-center" >
-                <DrawingCanvas setImageURI={setCanvasURI}/>
-                {/* <img className="signature-thumbnail" width="250px" 
-                src ={canvasURI} 
-                alt="Signature thumbnail"></img> */}
-
+            <div className="text-center row" >
+                <div className="col-md-2">
+                    {hasPrev()}
+                    
+                </div>
+                <div className="col-md-8 side-col">
+                    <DrawingCanvas setImageURI={setCanvasURI}/>
+                    {/* <img className="signature-thumbnail" width="250px" 
+                    src ={canvasURI} 
+                    alt="Signature thumbnail"></img> */}
+                </div>
+                <div className="col-md-2 side-col">
+                    {hasNext()}
+                </div>
+            </div>
+            <div className="text-center">
                 <div className="row">
                     <div className="col-md-2 col-lg-2 offset-md-4 offset-lg-4">
                         <button className="btn btn-success" onClick={submit}>Submit</button>
@@ -75,9 +94,11 @@ const SubPlayPage = ({number_truth = "0"}) => {
             
                 <h4>Your number is : {number_result}</h4>
                 <h4>The score given by model {score_result}</h4>
-    
+
             </div>
+            
         </div>
+        
 
     )
 };

@@ -53,3 +53,11 @@
 .Play {
   text-align: center;
 }
+
+#nextButton{
+  margin-top: 150%;
+}
+
+#prevButton{
+  margin-top: 150%;
+}
