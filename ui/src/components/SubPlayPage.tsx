@@ -5,10 +5,12 @@ import DrawingCanvas from "./DrawingCanvas";
 
 const SubPlayPage = ({number_truth = "0"}) => {
     // const history = useNavigate();
-    const url = "http://192.168.1.65:8000/predict"
-    const [canvasURI, setCanvasURI] = useState("")
-    const [number_result, SetNumberResult] = useState(0);
-    const [score_result, SetScoreResult] = useState(0.99);
+    const url = process.env.REACT_APP_SERVER_URL+"/predict"
+    console.log("test url:",process.env.REACT_APP_SERVER_URL)
+    // console.log("process.env",process.env)
+    const [canvasURI, setCanvasURI] = useState("")  
+    const [numberResult, setNumberResult] = useState(0);
+    const [scoreResult, setScoreResult] = useState(0.99);
 
 
     const getResults = (imageData:Blob) => {
@@ -20,8 +22,8 @@ const SubPlayPage = ({number_truth = "0"}) => {
                 body: fd }).then(Response => { 
                     Response.json().then(Json => {
                         console.log(Json.data);
-                        SetNumberResult(Json.data.classification)
-                        SetScoreResult(Json.data.score)
+                        setNumberResult(Json.data.classification)
+                        setScoreResult(Json.data.score)
                     });
                 })
                 .catch(err => console.error(err))
@@ -59,8 +61,8 @@ const SubPlayPage = ({number_truth = "0"}) => {
         canvas.width = 1;
         canvas.width = width
 
-        SetNumberResult(0)
-        SetScoreResult(0.99)
+        setNumberResult(0)
+        setScoreResult(0.99)
     }
     return (
         <div className="container"> 
@@ -92,9 +94,9 @@ const SubPlayPage = ({number_truth = "0"}) => {
                     </div>                
                 </div>
             
-                <h4>Your number is : {number_result}</h4>
-                <h4>The score given by model {score_result}</h4>
-
+                <h4>Your number is : {numberResult}</h4>
+                <h4>The score given by model {scoreResult}</h4>
+    
             </div>
             
         </div>
