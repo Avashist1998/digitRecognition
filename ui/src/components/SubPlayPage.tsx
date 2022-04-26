@@ -11,23 +11,32 @@ const SubPlayPage = ({number_truth = "0"}) => {
     const [canvasURI, setCanvasURI] = useState("")  
     const [numberResult, setNumberResult] = useState(0);
     const [scoreResult, setScoreResult] = useState(0.99);
+    const [scoreVisible, setScoreVisible] = useState(false);
 
+
+    // const getResults = (imageData:Blob) => {
+    //     if (imageData != null){
+    //         const fd = new FormData()
+    //         fd.append('file', imageData, "file.png")
+    //         fetch(url, {
+    //             method: "POST",
+    //             body: fd }).then(Response => { 
+    //                 Response.json().then(Json => {
+    //                     console.log(Json.data);
+    //                     setScoreVisible(true);
+    //                     setNumberResult(Json.data.classification)
+    //                     setScoreResult(Json.data.score)
+    //                 });
+    //             })
+    //             .catch(err => console.error(err))
+    //     }
+    // }
 
     const getResults = (imageData:Blob) => {
-        if (imageData != null){
-            const fd = new FormData()
-            fd.append('file', imageData, "file.png")
-            fetch(url, {
-                method: "POST",
-                body: fd }).then(Response => { 
-                    Response.json().then(Json => {
-                        console.log(Json.data);
-                        setNumberResult(Json.data.classification)
-                        setScoreResult(Json.data.score)
-                    });
-                })
-                .catch(err => console.error(err))
-        }
+        console.log(Blob);
+        setNumberResult(0);
+        setScoreResult(0.99);
+        setScoreVisible(true);
     }
 
     function hasPrev(){
@@ -84,6 +93,13 @@ const SubPlayPage = ({number_truth = "0"}) => {
                     {hasNext()}
                 </div>
             </div>
+            {
+                scoreVisible ? 
+                (<div>
+                    <h4>Your number is : {numberResult}</h4>
+                    <h4>The score given by model {scoreResult}</h4>
+                </div>) : null
+            }
             <div className="text-center">
                 <div className="row">
                     <div className="col-md-2 col-lg-2 offset-md-4 offset-lg-4">
@@ -93,10 +109,6 @@ const SubPlayPage = ({number_truth = "0"}) => {
                         <button className="btn btn-danger" onClick={undo}>Clear</button>
                     </div>                
                 </div>
-            
-                <h4>Your number is : {numberResult}</h4>
-                <h4>The score given by model {scoreResult}</h4>
-    
             </div>
             
         </div>
