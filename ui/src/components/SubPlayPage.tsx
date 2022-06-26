@@ -1,17 +1,17 @@
-import { METHODS } from "http";
 import React, { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import DrawingCanvas from "./DrawingCanvas";
-
+import ScorePopUp from "./ScorePopUp";
+import './SubPlayPage.css'
 const SubPlayPage = ({number_truth = "0"}) => {
     // const history = useNavigate();
     const url = process.env.REACT_APP_SERVER_URL+"/predict"
     console.log("test url:",process.env.REACT_APP_SERVER_URL)
     // console.log("process.env",process.env)
     const [canvasURI, setCanvasURI] = useState("")  
+    const [showResult, setShowResult] = useState(false);
     const [numberResult, setNumberResult] = useState(0);
     const [scoreResult, setScoreResult] = useState(0.99);
-
 
     const getResults = (imageData:Blob) => {
         if (imageData != null){
@@ -50,6 +50,8 @@ const SubPlayPage = ({number_truth = "0"}) => {
                 getResults(blob)
             }
          })
+        setShowResult(true)
+        document.documentElement.style.setProperty('--Sub-play-page-visibility', '0.5')
     }
     
     const undo = () => {
@@ -60,12 +62,20 @@ const SubPlayPage = ({number_truth = "0"}) => {
         var width = canvas.width;
         canvas.width = 1;
         canvas.width = width
-
+        setShowResult(false)
         setNumberResult(0)
         setScoreResult(0.99)
     }
+
+
+    const closePopUp = () => {
+        setShowResult(false)
+        document.documentElement.style.setProperty('--Sub-play-page-visibility', '1')
+    }
+
     return (
-        <div className="container"> 
+        <div className="container">
+            <div className="main-container"> 
             <div className="text-center">
                 <h2> Try to make a {number_truth}</h2>
             </div>
@@ -76,9 +86,6 @@ const SubPlayPage = ({number_truth = "0"}) => {
                 </div>
                 <div className="col-md-8 side-col">
                     <DrawingCanvas setImageURI={setCanvasURI}/>
-                    {/* <img className="signature-thumbnail" width="250px" 
-                    src ={canvasURI} 
-                    alt="Signature thumbnail"></img> */}
                 </div>
                 <div className="col-md-2 side-col">
                     {hasNext()}
@@ -93,12 +100,18 @@ const SubPlayPage = ({number_truth = "0"}) => {
                         <button className="btn btn-danger" onClick={undo}>Clear</button>
                     </div>                
                 </div>
-            
-                <h4>Your number is : {numberResult}</h4>
-                <h4>The score given by model {scoreResult}</h4>
-    
             </div>
-            
+            </div>
+            <div className="text-center">
+                <ScorePopUp trigger={showResult}>
+                    <div>
+                        <button className="close-btn" onClick={closePopUp}>close</button>
+                        <h4>Your number is : {numberResult}</h4>
+                        <h4>The score given by model {scoreResult}</h4>
+                    </div> 
+                </ScorePopUp>
+                
+            </div>
         </div>
         
 

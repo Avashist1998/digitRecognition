@@ -2,7 +2,20 @@
     size: 50rem;
 }
 
+;root {
+    --Sub-play-page-visibility: 1;
+}
 /* img.signature-thumbnail{
     border: 1px solid black;
     width: 250px;
 } */
+
+.main-container{
+    opacity: var(--Sub-play-page-visibility);
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
