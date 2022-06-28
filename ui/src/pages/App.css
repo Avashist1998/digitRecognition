@@ -1,10 +1,15 @@
 :root{
+  /* color */
   --base-white:#D7D9CE;
   --base-black: #404040;
   --base-dark-blue:#13505B;
   --base-light-blue:#0C7489;
   --base-bright-blue :#119DA4;
+  /* visiblity */
+  --play-popup-visibility: 1;
+  --home-page-visibility: 1;
 }
+
 .App {
   text-align: center;
 }
@@ -44,20 +49,24 @@
   }
 }
 
-.nav-bar{
-  background:var(--base-white);
-  height:100px;
+.home-page-content{
+  opacity: var(--home-page-visibility);
+}
+
+.home-about-content{
+  opacity: var(--home-page-visibility);
+}
+.play-popup-content{
+  opacity: var(--play-popup-visibility);
 }
 
 
-.Play {
-  text-align: center;
+.play-popup-close-btn{
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
 
-#nextButton{
-  margin-top: 150%;
-}
-
-#prevButton{
-  margin-top: 150%;
+.row {
+  margin-right: 0;
 }
