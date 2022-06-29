@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 
 function About() {
     return (
@@ -17,7 +16,7 @@ function About() {
                                 src="http://placehold.it/800x800"
                                 alt=""
                             />
-                            <h4>Huy Loung</h4>
+                            <h4>Huy Luong</h4>
                             <p>
                                 What was you roal on the team. What was your contribution to the application? Something fund
                             </p>

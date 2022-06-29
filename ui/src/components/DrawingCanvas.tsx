@@ -3,7 +3,7 @@ import React,
         useRef, useLayoutEffect, MouseEvent,
         Dispatch, SetStateAction 
     } from 'react';
-// import './PlayPage.css'
+import './DrawingCanvas.css'
 
 //make interface for passing props
 interface IProps {
