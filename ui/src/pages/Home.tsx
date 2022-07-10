@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import PlayPopUp from '../components/PlayPopUp';
 import About from "../components/About";
 import './App.css';
-
+import home_gif from "../images/output_sinusoid.gif"
 
 function Home() {
   const [showPlayPopUp, setShowPlayPopUp] = useState(false);
@@ -26,8 +26,8 @@ function Home() {
               <div className="col-lg-7">
                 <img
                   className="img-fluid rounded mb-2" height="400" width="400"
-                  src="https://cdn.rawgit.com/hardmaru/cppn-gan-vae-tensorflow/master/examples/output_sinusoid.gif"
-                  alt=""
+                  src={home_gif}
+                  alt="home gif"
                 />
               </div>
               <div className="col-lg-5">
@@ -37,9 +37,9 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className='text-center'>
-            <button className='play-btn' onClick={openPlayPopUp}>Play</button>
-          </div>
+            <div className='text-center'>
+              <button className='play-btn' onClick={openPlayPopUp}>Play</button>
+            </div>
           <div className='container'>
             <About/>
           </div>
@@ -54,7 +54,6 @@ function Home() {
           </div>
         </div>
       </div>
-
     );
   }
   

@@ -60,13 +60,20 @@
   opacity: var(--play-popup-visibility);
 }
 
-
 .play-popup-close-btn{
   position: absolute;
   top: 16px;
   right: 16px;
 }
 
+.home-play-popup{
+  margin-bottom: 20px;
+}
+
 .row {
   margin-right: 0;
+}
+
+.play-btn{
+  margin: 10%;
 }
