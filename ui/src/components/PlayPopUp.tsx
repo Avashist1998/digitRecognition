@@ -1,5 +1,6 @@
 import React, { ReactNode, useState} from "react"
 import DrawingCanvas from "./DrawingCanvas";
+import ScoreMessage from "./ScoreMessage";
 import ScorePopUp from "./ScorePopUp";
 import './PlayPopUp.css'
 
@@ -114,8 +115,7 @@ const PlayBlock = ({number_truth = "0"}) => {
                 <ScorePopUp trigger={showResult}>
                     <div>
                         <button className="close-btn" onClick={hideResults}>close</button>
-                        <h4>Your number is : {numberResult}</h4>
-                        <h4>The score given by model {scoreResult}</h4>
+                        <ScoreMessage number_truth= {number_truth} number_result={numberResult} score={scoreResult}/>
                     </div> 
                 </ScorePopUp>
                 
@@ -123,3 +123,6 @@ const PlayBlock = ({number_truth = "0"}) => {
         </div>
     )
 };
+
+
+
