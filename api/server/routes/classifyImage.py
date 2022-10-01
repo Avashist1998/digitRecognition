@@ -14,7 +14,7 @@ from ..models.classificationData import(
     ErrorResponseModel
 )
 
-tmp_path = os.path.join(os.getcwd(),  "server/classifer_binaries/RandomForestClassifer.pkl")
+tmp_path = os.path.join(os.getcwd(),  "server/classifier_binaries/RandomForestClassifier.pkl")
 model_path = os.getenv("MODEL_PATH", tmp_path)
 
 router = APIRouter()
@@ -25,7 +25,7 @@ router.model = pickle.load(open(model_path, "rb"))
 async def getClassificationResults(file: UploadFile = File(...)):
     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
     if not extension:
-        return ErrorResponseModel("request failed", 404, "Invalid file extentions")
+        return ErrorResponseModel("request failed", 404, "Invalid file extensions")
 
     contents = await file.read()
     image = fileToImage(contents)

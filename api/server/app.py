@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from .routes.classifyImage import router as NumberClassiferRouter
+from .routes.classifyImage import router as NumberClassifierRouter
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-app.include_router(NumberClassiferRouter, tags=['NumberClassiferRouter'], prefix="/predict")
+app.include_router(NumberClassifierRouter, tags=['NumberClassifierRouter'], prefix="/predict")
 
 origins = [
     "http://localhost.tiangolo.com",
