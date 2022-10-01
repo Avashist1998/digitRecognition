@@ -1,0 +1,13 @@
+.nobull {
+  list-style-type: none;
+}
+
+
+.justify-content-around {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.About {
+    padding-top: 2%;
+}

@@ -60,6 +60,3 @@ const DrawingCanvas:React.FC<IProps> = ({setImageURI}) => {
 };
 
 export default DrawingCanvas;
-
-//https://github.com/rleija703/react-examples/blob/master/useref-with-typescript/src/App.tsx
-//https://linguinecode.com/post/how-to-use-react-useref-with-typescript
