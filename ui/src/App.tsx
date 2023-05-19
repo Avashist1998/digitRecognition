@@ -9,10 +9,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/play" element={<PlayPage/>} />
+        <Route path="/digitRecognition/" element={<HomePage/>} />
+        <Route path="/digitRecognition/play" element={<PlayPage/>} />
         <Route
-          path="/*"
+          path="/digitRecognition/*"
           element={
             <main style={{ padding: "1rem" }}>
               <p>There's nothing here!</p>
