@@ -27,7 +27,7 @@ const HomePage = () => {
       </div>
 
       <div className="bg-background h-screen flex items-center justify-center">
-        <a className="no-underline hover:no-underline" href="./play">
+        <a className="no-underline hover:no-underline" href="/digitRecognition/#/play">
           <div className="hover:bg-sky-600 bg-sky-950 rounded-md">
             <h2 className="m-5 p-2 rounded text-5xl text-white flex justify-center pointer-events-none">
               Play
