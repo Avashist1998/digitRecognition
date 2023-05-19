@@ -1,7 +1,7 @@
 // import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "./pages/Home"
+import HomePage from "./pages/HomePage"
 import Play from "./pages/Play"
 import Footer from './components/Footer';
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<HomePage/>} />
         <Route path="/play" element={<Play/>} />
         <Route
           path="/*"

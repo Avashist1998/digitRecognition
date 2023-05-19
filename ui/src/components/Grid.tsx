@@ -1,13 +1,10 @@
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import Card from "./Card";
 import type { NumberCardData } from "../types/NumberCardData";
 import "./Grid.css";
 import PlayPopUp from "./PlayPopUp";
 import ConditionalRender from "./ConditionalRender";
 
-// useEffect(() => {
-//   console.log("showPopUpArray", showPopUpArray)
-// }, [showPopUpArray]);
 
 interface Props {
   cards: NumberCardData[];
@@ -21,7 +18,6 @@ const Grid = ({ cards }: Props) => {
     initializeCompletedCards.push(false);
   });
 
-  const cardRef = useRef(null);
   const [activeCards, setActiveCards] = useState<boolean[]>(initialActiveCards);
   const [showPopUpArray, setShowPopUpArray] =
     useState<boolean[]>(initialActiveCards);
@@ -46,7 +42,7 @@ const Grid = ({ cards }: Props) => {
 
   const getDotClassName = (card: NumberCardData) => {
     var dotClassName =
-      "w-2 h-2 rounded-full my-2 last:my-0 p-2 m-5 transition-colors duration-300 ";
+      "w-2 h-2 rounded-full ml-3 my-2 last:my-0 p-2 m-5 transition-colors duration-300 ";
     if (activeCards[card.id]) {
       if (cardCompletedArray[card.id]) {
         return dotClassName + "bg-green-500";
@@ -68,7 +64,6 @@ const Grid = ({ cards }: Props) => {
   };
 
   const setShowPopUp = (id: number, state: boolean) => {
-    console.log("what was passed is", state);
     var newShowPopUpArray = showPopUpArray.map((_, index) => {
       if (index === id) {
         return state;
@@ -91,49 +86,50 @@ const Grid = ({ cards }: Props) => {
   };
 
   const nextCard = (id: number) => {
-    console.log("next card is triggered", id);
     setShowPopUp(id, false);
     setShowPopUp(id + 1, true);
-    if (cardRef.current) {
-      const nextCard = cardRef.current.nextElementSibling;
-      if (nextCard) {
-        nextCard.scrollIntoView({ behavior: "smooth" });
-      }
+    const nextCardElement = document.querySelector(`[number-card-id="${id + 1}"]`);
+    if (nextCardElement) {
+      nextCardElement.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const prevCard = (id: number) => {
-    console.log("prev card is triggered", id);
     setShowPopUp(id, false);
     setShowPopUp(id - 1, true);
-    const prevCard = cardRef.current.previousElementSibling;
-    if (prevCard) {
-      prevCard.scrollIntoView({ behavior: "smooth" });
+    const prevCardElement = document.querySelector(`[number-card-id="${id - 1}"]`);
+    if (prevCardElement) {
+      prevCardElement.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div className="overflow-x-auto">
-      <div className="flex space-x-4 p-4">
-        {cards.map((card) => (
-          <div
-            className="w-64"
-            ref={card.id === 0 ? cardRef : null}
-            key={card.id}
-          >
+    <div className="justify-content">
+      <div className="overflow-x-auto">
+        <div className="flex space-x-4 p-4">
+          {cards.map((card) => (
             <div
-              className={getDivCardClassName(card)}
+              className="w-64 justify-center flex flex-col items-center"
               key={card.id}
-              onClick={() => {
-                console.log("I was triggered", true && activeCards[card.id]);
-                setShowPopUp(card.id, true && activeCards[card.id]);
-              }}
             >
-              <Card key={card.id} card={card} />
+              <div
+                className={getDivCardClassName(card)}
+                number-card-id={card.id}
+                key={card.id}
+                onClick={() => {
+                  setShowPopUp(card.id, true && activeCards[card.id]);
+                }}
+              >
+                <Card key={card.id} card={card}/>
+              </div>
+              <div key={card.id} className={getDotClassName(card)}></div>
             </div>
-            <div key={card.id} className={getDotClassName(card)}></div>
-            <div>
-              <ConditionalRender condition={showPopUpArray[card.id]}>
+          ))}
+        </div>
+      </div>
+      <div className="">
+        {cards.map((card) => (
+          <ConditionalRender condition={showPopUpArray[card.id]}>
                 <PlayPopUp
                   number={card.id.toString()}
                   hasNext={card.id < showPopUpArray.length - 1}
@@ -176,11 +172,9 @@ const Grid = ({ cards }: Props) => {
                   </ConditionalRender>
                 </PlayPopUp>
               </ConditionalRender>
-            </div>
-          </div>
         ))}
-      </div>
     </div>
+  </div>
   );
 };
 

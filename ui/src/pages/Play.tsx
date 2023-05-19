@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Grid from '../components/Grid';
 import type { NumberCardData } from '../types/NumberCardData';
 
@@ -17,16 +16,9 @@ const Play = () => {
         { id: 8, title: 'Number 8' } as NumberCardData,
         { id: 9, title: 'Number 9' } as NumberCardData,
     ]
-
-    console.log("cards", cards)
-
     return (
-        <div className="content-center mb-5 bg-background">
-            <div className="pt-5">
-                <div className="text-center">
-                    <Grid cards={cards}/>
-                </div>
-            </div>
+        <div className="content-center">
+            <Grid cards={cards}/>
         </div>
     );
 }

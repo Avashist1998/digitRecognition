@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import "./PlayBlock.css"
 import predict from "../api/GetPredict";
 import DrawingCanvas from "./DrawingCanvas";
 import ConditionalRender from './ConditionalRender';
@@ -52,9 +51,9 @@ const PlayBlock = ({val, hasNext, playNextCard, activateNextCard, setCardComplet
         var canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
         const ctx = canvas.getContext('2d');
         if (ctx !== null) {
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height, {willReadFrequently: true}).data;
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
             var normalArray = Array.prototype.slice.call(imageData);
-            console.log("data", normalArray, "length", normalArray.length, "width", canvas.width, "height", canvas.height)
+            // console.log("data", normalArray, "length", normalArray.length, "width", canvas.width, "height", canvas.height)
             predict(normalArray, canvas.width, canvas.height).then(results => {
                 setScoreResult(results.score);
                 setNumberResult(results.classification);
@@ -64,7 +63,7 @@ const PlayBlock = ({val, hasNext, playNextCard, activateNextCard, setCardComplet
     }
 
     const undo = () => {
-        console.log("clear the screen")
+        // console.log("clear the screen")
         var canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
         var context = canvas.getContext('2d') as CanvasRenderingContext2D;
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -106,8 +105,7 @@ const PlayBlock = ({val, hasNext, playNextCard, activateNextCard, setCardComplet
             <div className="text-center">
                 <ConditionalRender condition ={showResult}>
                     <div className="fixed top-0 left-0 w-full h-screen flex justify-center items-center" >
-
-                        <div className="relative p-8 w-100 max-w-[640px] bg-[#D7D9CE] border-black border-solid border-4"> 
+                        <div className="relative p-8 w-100 max-w-[640px] rounded bg-background border-black border-solid border-4"> 
                             <button className="bg-red-500 hover:bg-red-700 text-white font-bold p-1 px-4 rounded absolute top-2 right-2" onClick={hideResults}>close</button>
                             <h1 className="text-2xl mt-5">{resultMessage}</h1>
                             <div className="row content-center flex justify-center mt-5">

@@ -43,11 +43,17 @@ const convertToTensor = (data: number[], height: number, width: number) => {
 
 ;
 const PATH = "/model.onnx";
+var isLoaded = false;
+
 const session = new InferenceSession();
-await session.loadModel(PATH);
+const loadModel = async () => {
+    if (isLoaded) return;
+    await session.loadModel(PATH);
+    isLoaded = true;
+};
 
 const predict = async (imageData: number[], n: number, m: number) => {
-
+    await loadModel();
     const imageMatrix = convertToTensor(imageData, n, m);
     const feeds = [imageMatrix]
     const outputData = await session.run(feeds);

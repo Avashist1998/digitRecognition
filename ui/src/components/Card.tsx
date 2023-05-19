@@ -1,21 +1,17 @@
 import type { NumberCardData } from '../types/NumberCardData';
-import PlayPopUp from './PlayPopUp';
+
+
+
 interface Props {
   card: NumberCardData,
-
 }
 
 const Card = ({card}: Props) => {
-
-
-
   return (
-    <div className="opacity-100">
-      <div className='w-auto h-auto'>
-        <h2>{card.title}</h2>
-        {/* <p>{card.description}</p> */}
+
+      <div className='w-[200px] h-auto p-4 ml-4'>
+        <h2 className="text-2xl">{card.title}</h2>
       </div>
-    </div>
   );
 };
 
