@@ -27,11 +27,12 @@
 }
 
 .play-popup-inner{
+    background-color: #D7D9CE ;
     position: relative;
     padding: 32px;
     width: 100%;
     max-width: 740px;
-    background-color: var(--base-white);
+    /* background-color: var(--base-white); */
     border-color: var(--base-black);
     border-style: solid;
     border-width: thick;

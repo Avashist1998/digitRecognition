@@ -1,24 +1,12 @@
-import React, {useState} from 'react';
-import PlayPopUp from '../components/PlayPopUp';
+import React, { useState } from 'react';
+// import './Home.css';
+
 import About from "../components/About";
-import './Home.css';
 
 
 function Home() {
-    const [showPlayPopUp, setShowPlayPopUp] = useState(false);
-    // const [numberTruth, setNumberTruth] = useState('0');
-
-    const openPlayPopUp = () => {
-        setShowPlayPopUp(true)
-        document.documentElement.style.setProperty('--home-page-visibility', '0.5')
-    }
-    const closePopUp = () => {
-        setShowPlayPopUp(false)
-        document.documentElement.style.setProperty('--home-page-visibility', '1.0')
-    }
-
     return (
-        <div className="Home">
+        <div className="bg-background">
             <div className="home-page-content">
                 <div className="container">
                     <div className="row align-items-center my-5">
@@ -34,23 +22,12 @@ function Home() {
                     </div>
                 </div>
                 <div className='row justify-content-around'>
-                    <div className='text-center'>
-                        <button className='play-btn'
-                            onClick={openPlayPopUp}>Play</button>
-                    </div>
+                    <a className="no-underline" href="/play">
+                        <h2 className="bg-sky-950 hover:bg-sky-600 m-5 p-2 rounded text-5xl text-white">Play</h2>
+                    </a>
                 </div>
                 <div className='about-content'>
                     <About/>
-                </div>
-            </div>
-            <div className="home-play-popup">
-                <div className="text-center">
-                    <PlayPopUp trigger={showPlayPopUp}>
-                        <div>
-                            <button className="play-popup-close-btn"
-                                onClick={closePopUp}>close</button>
-                        </div>
-                    </PlayPopUp>
                 </div>
             </div>
         </div>

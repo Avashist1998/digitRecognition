@@ -1,17 +1,18 @@
-import React from 'react';
-import { BrowserRouter, Routes,Route } from "react-router-dom";
-
+// import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home"
-import Footer from './components/footer';
+import Play from "./pages/Play"
+import Footer from './components/Footer';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/play" element={<Play/>} />
         <Route
-          path="*"
+          path="/*"
           element={
             <main style={{ padding: "1rem" }}>
               <p>There's nothing here!</p>
@@ -19,7 +20,7 @@ function App() {
           }
         />
       </Routes>
-    <Footer/>
+      <Footer/>
     </BrowserRouter>
   );
 }

@@ -5,11 +5,9 @@ import React,
     } from 'react';
 import './DrawingCanvas.css'
 
-//make interface for passing props
 interface IProps {
   setImageURI?: Dispatch<SetStateAction<string>>;
 }
-
 
 const DrawingCanvas:React.FC<IProps> = ({setImageURI}) => { 
     const refCanvas = useRef<HTMLCanvasElement>(null) 
@@ -18,7 +16,7 @@ const DrawingCanvas:React.FC<IProps> = ({setImageURI}) => {
     var isPainting:boolean = false
 
     useLayoutEffect(() => {
-        console.log(refCanvas); // { current: <h1_object> }
+        // console.log(refCanvas); // { current: <h1_object> }
         contextRefCanvas = refCanvas.current!.getContext('2d');
         boundCanvas = refCanvas.current!.getBoundingClientRect()
     })
@@ -44,7 +42,8 @@ const DrawingCanvas:React.FC<IProps> = ({setImageURI}) => {
         let offsetX = boundCanvas!.x
         let offsetY = boundCanvas!.y
         contextRefCanvas!.lineWidth = 50
-        contextRefCanvas!.lineCap   = "round"
+        contextRefCanvas!.lineCap = "round"
+        contextRefCanvas!.lineJoin = "round";
         contextRefCanvas!.lineTo(e.pageX - offsetX, e.pageY - offsetY) //
         contextRefCanvas!.stroke() // this will draw the line
     }

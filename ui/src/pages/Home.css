@@ -49,13 +49,6 @@
   }
 }
 
-.home-page-content{
-  opacity: var(--home-page-visibility);
-}
-
-.home-about-content{
-  opacity: var(--home-page-visibility);
-}
 .play-popup-content{
   opacity: var(--play-popup-visibility);
 }
