@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .routes.classifyImage import router as NumberClassifierRouter
+from .routes.classify_image import router as NumberClassifierRouter
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -10,7 +10,8 @@ origins = [
     "https://localhost.tiangolo.com",
     "http://localhost",
     "http://localhost:8080",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://localhost:5175"
 ]
 
 app.add_middleware(
@@ -27,7 +28,3 @@ async def reat_root():
     return {
         "message": "api main page"
         }
-
-
-
-
