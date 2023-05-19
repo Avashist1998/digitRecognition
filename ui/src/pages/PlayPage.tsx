@@ -1,7 +1,7 @@
 import Grid from '../components/Grid';
 import type { NumberCardData } from '../types/NumberCardData';
 
-const Play = () => {
+const PlayPage = () => {
 
 
     const cards = [
@@ -24,4 +24,4 @@ const Play = () => {
 }
 
 
-export default Play;
+export default PlayPage;

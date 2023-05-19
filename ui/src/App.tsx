@@ -2,7 +2,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage"
-import Play from "./pages/Play"
+import PlayPage from "./pages/PlayPage"
 import Footer from './components/Footer';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/play" element={<Play/>} />
+        <Route path="/play" element={<PlayPage/>} />
         <Route
           path="/*"
           element={
