@@ -32,18 +32,18 @@ const convertToTensor = (data: number[], height: number, width: number) => {
     const output: number[] = []
     for (let i = 0; i < 32; i++) {
         for (let j = 0; j < 32; j++) {
-            var norm = output2D[i][j] / 255;
+            let norm = output2D[i][j] / 255;
             norm = (norm - 0.1307) / 0.3081;
             output.push(norm)
         }
     }
-    var tensor = new Tensor(new Float32Array(output), "float32", [1, 1, 32, 32]);
+    const tensor = new Tensor(new Float32Array(output), "float32", [1, 1, 32, 32]);
     return tensor;
 }
 
 ;
 const PATH = "/digitRecognition/model.onnx";
-var isLoaded = false;
+let isLoaded = false;
 
 const session = new InferenceSession();
 const loadModel = async () => {

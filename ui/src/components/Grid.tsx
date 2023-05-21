@@ -26,9 +26,8 @@ const Grid = ({ cards }: Props) => {
   );
 
   const getDivCardClassName = (card: NumberCardData) => {
-    let divCardClassName = "flex-shrink-0 p-4 rounded shadow-md w-full ";
+    const divCardClassName = "flex-shrink-0 p-4 rounded shadow-md w-full ";
     if (activeCards[card.id]) {
-
       if (showPopUpArray[card.id]) {
         return divCardClassName + " hover:bg-gray-200 bg-blue-400 transition-colors duration-300";
       }
@@ -41,7 +40,7 @@ const Grid = ({ cards }: Props) => {
   };
 
   const getDotClassName = (card: NumberCardData) => {
-    var dotClassName =
+    const dotClassName =
       "w-2 h-2 rounded-full ml-3 my-2 last:my-0 p-2 m-5 transition-colors duration-300 ";
     if (activeCards[card.id]) {
       if (cardCompletedArray[card.id]) {
@@ -53,7 +52,7 @@ const Grid = ({ cards }: Props) => {
   };
 
   const activateNextCard = (id: number) => {
-    var newActive = activeCards.map((value, index) => {
+    const newActive = activeCards.map((value, index) => {
       if (index === id + 1) {
         return true;
       } else {
@@ -64,7 +63,7 @@ const Grid = ({ cards }: Props) => {
   };
 
   const setShowPopUp = (id: number, state: boolean) => {
-    var newShowPopUpArray = showPopUpArray.map((_, index) => {
+    const newShowPopUpArray = showPopUpArray.map((_, index) => {
       if (index === id) {
         return state;
       } else {
@@ -75,7 +74,7 @@ const Grid = ({ cards }: Props) => {
   };
 
   const setCardCompleted = (id: number) => {
-    var newCardCompleted = cardCompletedArray.map((value, index) => {
+    const newCardCompleted = cardCompletedArray.map((value, index) => {
       if (index === id) {
         return true;
       } else {
@@ -129,7 +128,7 @@ const Grid = ({ cards }: Props) => {
       </div>
       <div className="">
         {cards.map((card) => (
-          <ConditionalRender condition={showPopUpArray[card.id]}>
+          <ConditionalRender condition={showPopUpArray[card.id]} key={card.id}>
                 <PlayPopUp
                   number={card.id.toString()}
                   hasNext={card.id < showPopUpArray.length - 1}

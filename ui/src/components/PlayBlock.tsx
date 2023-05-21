@@ -48,11 +48,11 @@ const PlayBlock = ({val, hasNext, playNextCard, activateNextCard, setCardComplet
     }
 
     const submit  = async () => {
-        var canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
+        const canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
         const ctx = canvas.getContext('2d');
         if (ctx !== null) {
             const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-            var normalArray = Array.prototype.slice.call(imageData);
+            const normalArray = Array.prototype.slice.call(imageData);
             // console.log("data", normalArray, "length", normalArray.length, "width", canvas.width, "height", canvas.height)
             predict(normalArray, canvas.width, canvas.height).then(results => {
                 setScoreResult(results.score);
@@ -64,10 +64,10 @@ const PlayBlock = ({val, hasNext, playNextCard, activateNextCard, setCardComplet
 
     const undo = () => {
         // console.log("clear the screen")
-        var canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
-        var context = canvas.getContext('2d') as CanvasRenderingContext2D;
+        const canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
+        const context = canvas.getContext('2d') as CanvasRenderingContext2D;
         context.clearRect(0, 0, canvas.width, canvas.height);
-        var width = canvas.width;
+        const width = canvas.width;
         canvas.width = 1;
         canvas.width = width
         setShowResult(false)

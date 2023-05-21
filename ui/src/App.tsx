@@ -1,4 +1,3 @@
-// import React from 'react';
 import {Routes, Route, HashRouter } from "react-router-dom";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage"
@@ -15,7 +14,7 @@ function App() {
           path="/*"
           element={
             <main style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
+              <p>There&apos;s nothing here&#39;</p>
             </main>
           }
         />

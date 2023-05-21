@@ -11,9 +11,9 @@ interface IProps {
 
 const DrawingCanvas:React.FC<IProps> = ({setImageURI}) => { 
     const refCanvas = useRef<HTMLCanvasElement>(null) 
-    var contextRefCanvas:any = null
-    var boundCanvas:DOMRect
-    var isPainting:boolean = false
+    let boundCanvas: DOMRect;
+    let contextRefCanvas:any = null
+    let isPainting = false
 
     useLayoutEffect(() => {
         // console.log(refCanvas); // { current: <h1_object> }
@@ -36,8 +36,8 @@ const DrawingCanvas:React.FC<IProps> = ({setImageURI}) => {
 
     const draw = (e:MouseEvent<HTMLCanvasElement>)=> {
         if (!isPainting) return;
-        let offsetX = boundCanvas!.x
-        let offsetY = boundCanvas!.y
+        const offsetX = boundCanvas!.x
+        const offsetY = boundCanvas!.y
         // console.log({x_offset:offsetX, Y_offset:offsetY})
         // console.log({X:e.clientX, Y:e.clientY})
         contextRefCanvas!.lineWidth = 50
