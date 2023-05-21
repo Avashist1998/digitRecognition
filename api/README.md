@@ -8,6 +8,6 @@
     
     cd api
     docker image build -t digitrecognizationapi .
-    docker run -d --name digitRecogniationAPI -p 8000:8000 -e PORT=8000 digitrecognizationapi:latest
+    docker run -d --name digitRecognitionAPI -p 8000:8000 -e PORT=8000 digitrecognizationapi:latest
 
 ```

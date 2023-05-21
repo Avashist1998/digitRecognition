@@ -193,3 +193,10 @@ packages/react-devtools-timeline/dist
 tmp.*
 *.pkl
 testSample
+
+
+# Ignore datatset
+data
+
+# Ignore model
+model_exploration/*.pt

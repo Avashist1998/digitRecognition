@@ -1,3 +1,4 @@
+"""Main module for FastAPI application."""
 import os
 import uvicorn
 from dotenv import load_dotenv

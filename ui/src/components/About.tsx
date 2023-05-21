@@ -1,4 +1,3 @@
-import React from 'react';
 import './About.css'
 
 function About() {
@@ -12,7 +11,7 @@ function About() {
                             The goal of the project is to used machine learning technology and help kids write better numbers.
                         </p>
                     </div>
-                    <h3>Tech Stack</h3>
+                    {/* <h3>Tech Stack</h3>
                     <div className="row justify-content-around">
                         <div className='text-left'>
                             <ul className='nobull'>
@@ -33,7 +32,7 @@ function About() {
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
                     <h3>Developers</h3>
                     <div className="row justify-content-around">
                         {/* Dev One */}

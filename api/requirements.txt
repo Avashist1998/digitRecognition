@@ -4,3 +4,4 @@ Pillow
 numpy
 scikit-learn
 python-multipart
+torch
