@@ -42,7 +42,7 @@ const convertToTensor = (data: number[], height: number, width: number) => {
 }
 
 ;
-const PATH = "/model.onnx";
+const PATH = "/digitRecognition/model.onnx";
 var isLoaded = false;
 
 const session = new InferenceSession();
